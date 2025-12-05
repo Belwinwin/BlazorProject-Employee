@@ -12,18 +12,29 @@ namespace BlazorProject.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.CreateTable(
                 name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+
+                    Name = table.Column<string>(type: "nvarchar(200)", nullable: false),
+
+                    // New fields
+                    Email = table.Column<string>(type: "nvarchar(256)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(20)", nullable: true),
+
+                    
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
                 });
+
 
             migrationBuilder.InsertData(
                 table: "Category",
