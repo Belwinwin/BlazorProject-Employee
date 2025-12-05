@@ -1,0 +1,74 @@
+@page "/employee"
+@inject iEmployeeRepository _EmployeeRepository
+<h3>EmployeeList</h3>
+
+@if(ISProcessing)
+{
+    <div class="position-absolute w-75 h-75 d-flex flex-column align-items-center bg-white justify-content-center">
+        <img src="/lib/images/loading.gif" alt="loading" />
+    </div>
+}
+else
+{
+    <div class="card shadow border-0 mt-4">
+        <div class="card-header bg-black bg-gradient ml-0 py-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Employee List</h2>
+                    </div>
+            </div>
+        </div>
+        <div class="card-body p-4">
+            <div class="row pb-3">
+                <div class="col-12" text-end>
+                    <a href="employee/create" class="btn btn btn-primary"><i class="bi bi-plus"></i>Add New Employee</a>
+                </div>
+            </div>
+            <p>Employee List</p>
+            @if (Employees.Any())
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var obj in Employees)
+                        {
+                            <tr>
+                                <td>@obj.Name</td>
+                                <td>
+                                    <a href="@($"employee/update/{obj.Id}")" class="btn btn btn-primary">Edit</a>
+                                </td>
+                            </tr>
+                        
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    public bool ISProcessing { get; set; } = true;
+    private IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadEmployees();
+            ISProcessing = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadEmployees()
+    {
+        Employees=await _EmployeeRepository.GetAllAsync();
+    }
+}
