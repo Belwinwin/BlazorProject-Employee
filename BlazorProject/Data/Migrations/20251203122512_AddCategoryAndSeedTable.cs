@@ -13,7 +13,7 @@ namespace BlazorProject.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employee",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -26,7 +26,7 @@ namespace BlazorProject.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Employee",
+                table: "Category",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {

@@ -13,16 +13,23 @@ namespace BlazorProject.Migrations
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
+                keyValue: 1,
+                column: "Name",
+                value: "John Smith");
+
+            migrationBuilder.UpdateData(
+                table: "Category",
+                keyColumn: "Id",
                 keyValue: 2,
                 column: "Name",
-                value: "Michael Brown");
+                value: "Sarah Johnson");
 
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "Name",
-                value: "John Smith");
+                value: "Michael Brown");
         }
 
         /// <inheritdoc />
@@ -31,16 +38,23 @@ namespace BlazorProject.Migrations
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
+                keyValue: 1,
+                column: "Name",
+                value: "John Smith");
+
+            migrationBuilder.UpdateData(
+                table: "Category",
+                keyColumn: "Id",
                 keyValue: 2,
                 column: "Name",
-                value: "Michael Brown");
+                value: "Sarah Johnson");
 
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "Name",
-                value: "John Smith");
+                value: "Michael Brown");
         }
     }
 }
