@@ -115,12 +115,12 @@ namespace BlazorProject.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "Entree"
+                            Name = "Sarah Johnson"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Dessert"
+                            Name = "John Smith"
                         });
                 });
 
